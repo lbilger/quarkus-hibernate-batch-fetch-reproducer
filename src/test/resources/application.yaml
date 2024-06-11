@@ -1,0 +1,20 @@
+quarkus:
+  datasource:
+    db-kind: h2
+    username: sa
+    password: ""
+    jdbc:
+      url: jdbc:h2:mem:quarkus-test;MODE=MSSQLServer;DB_CLOSE_DELAY=-1;INIT=create schema if not exists example\;set schema example
+  hibernate-orm:
+    database:
+      default-schema: example
+      generation: create
+    log:
+      format-sql: true
+      jdbc-warnings: true
+    persistence-xml:
+      ignore: true
+  log:
+    category:
+      org.hibernate.SQL:
+        level: debug
